@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/formindev/TaskManager.svg?branch=master)](https://travis-ci.org/formindev/TaskManager)
 
+[![Coverage Status](https://coveralls.io/repos/github/formindev/TaskManager/badge.svg?branch=master)](https://coveralls.io/github/formindev/TaskManager?branch=master)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
