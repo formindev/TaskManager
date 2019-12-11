@@ -4,6 +4,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/formindev/TaskManager/badge.svg?branch=master)](https://coveralls.io/github/formindev/TaskManager?branch=master)
 
+[![Coverage Status](https://coveralls.io/repos/github/formindev/TaskManager/badge.svg)](https://coveralls.io/github/formindev/TaskManager)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
