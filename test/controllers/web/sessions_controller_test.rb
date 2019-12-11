@@ -7,13 +7,8 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should post create" do
-<<<<<<< HEAD
     password = generate(:password)
     user = create(:user, { password: password })
-=======
-    password = generate(:string)
-    user = create(:user, {password: password})
->>>>>>> feature/travis
     attrs = {
       email: user.email,
       password: password
@@ -21,14 +16,6 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
     post session_url, params: { session: attrs }
     assert_response :redirect
   end
-<<<<<<< HEAD
-=======
-
-  test "should delete destroy" do
-    delete session_url
-    assert_response :redirect
-  end
->>>>>>> feature/travis
 
   test "should delete destroy" do
     delete session_url
