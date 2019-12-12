@@ -70,3 +70,4 @@ gem "twitter-bootstrap-rails"
 gem "jquery-rails"
 gem 'simplecov', require: false, group: :test
 gem 'coveralls', require: false
+gem 'rollbar'
