@@ -72,3 +72,7 @@ gem 'simplecov', require: false, group: :test
 gem 'coveralls', require: false
 gem 'rollbar'
 gem 'newrelic_rpm'
+gem 'kaminari'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'responders'
+gem 'active_model_serializers'
