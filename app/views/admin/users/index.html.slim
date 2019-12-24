@@ -1,11 +1,12 @@
 h3 Users list
-= link_to "Add new user", new_admin_user_path
 .container
   .row
-    .col-lg-10
-    .col-lg-2
+    .col-lg-9
+      = link_to "Add new user", new_admin_user_path
+    .col-lg-3
       = search_form_for(@q, url:admin_users_url, method: :get) do |f|
-        = f.search_field :email_cont, placeholder: "Search by email"
+        = f.search_field :email_cont, placeholder: "Search by email", class: "form-control"
+p
 table.table
   thead
     tr
