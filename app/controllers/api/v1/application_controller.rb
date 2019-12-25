@@ -1,4 +1,6 @@
 class Api::V1::ApplicationController < Api::ApplicationController
+  include AuthHelper
+  
   respond_to :json
 
   def build_meta_tasks(collection)
