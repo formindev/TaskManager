@@ -7,7 +7,7 @@ html lang="en"
     title= content_for?(:title) ? yield(:title) : "Task Manager"
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
-    = javascript_pack_tag "application"
+    = javascript_include_tag "application"
 
   body
   .navbar.navbar-default.navbar-static-top
@@ -34,6 +34,9 @@ html lang="en"
               -else
                 li= link_to "Sign in", new_session_path
                 li= link_to "Sign up", new_developer_path
+
+  scripts
+    = javascript_pack_tag "application"
 
   .container
     .row
