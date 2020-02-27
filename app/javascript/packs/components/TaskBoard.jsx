@@ -3,7 +3,7 @@ import Board from 'react-trello'
 import { fetch } from "./Fetch";
 import LaneHeader from './LaneHeader';
 import { Button } from 'react-bootstrap';
-//import AddPopup from './AddPopup';
+import AddPopup from './AddPopup';
 
 const components = {
   LaneHeader: LaneHeader
@@ -126,6 +126,10 @@ export default class TasksBoard extends React.Component {
           laneDraggable={false}
           handleDragEnd={this.handleDragEnd}
           data={this.getBoard()}
+        />
+        <AddPopup
+          show = {this.state.addPopupShow}
+          onClose={this.handleAddClose}
         />
       </div>
     );
