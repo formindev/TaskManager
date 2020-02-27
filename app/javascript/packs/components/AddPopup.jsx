@@ -3,12 +3,12 @@ import {
   Modal,
   Button,
   FormGroup,
-  ControlLabel,
+  FormLabel,
   FormControl
 } from "react-bootstrap";
 import { fetch } from "./Fetch";
 
-export default class EditPopup extends React.Component {
+export default class AddPopup extends React.Component {
   state = {
     name: "",
     description: "",
@@ -47,7 +47,7 @@ export default class EditPopup extends React.Component {
   render() {
     return (
       <div>
-        <Modal show={this.props.show} onHide={this.props.onClose}>
+        <Modal animation={false} show={this.props.show} onHide={this.props.onClose}>
           <Modal.Header closeButton>
             <Modal.Title>New task</Modal.Title>
           </Modal.Header>
@@ -55,7 +55,7 @@ export default class EditPopup extends React.Component {
           <Modal.Body>
             <form>
               <FormGroup controlId="formTaskName">
-                <ControlLabel>Task name:</ControlLabel>
+                <FormLabel>Task name:</FormLabel>
                 <FormControl
                   type="text"
                   value={this.state.name}
@@ -64,9 +64,9 @@ export default class EditPopup extends React.Component {
                 />
               </FormGroup>
               <FormGroup controlId="formDescriptionName">
-                <ControlLabel>Task description:</ControlLabel>
+                <FormLabel>Task description:</FormLabel>
                 <FormControl
-                  componentClass="textarea"
+                  componentclass="textarea"
                   value={this.state.description}
                   placeholder="Set the description for the task"
                   onChange={this.handleDecriptionChange}
@@ -77,7 +77,7 @@ export default class EditPopup extends React.Component {
 
           <Modal.Footer>
             <Button onClick={this.props.onClose}>Close</Button>
-            <Button bsStyle="primary" onClick={this.handleCardAdd}>
+            <Button bsstyle="primary" onClick={this.handleCardAdd}>
               Save changes
             </Button>
           </Modal.Footer>
