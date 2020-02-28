@@ -12,4 +12,10 @@ class Api::V1::ApplicationController < Api::ApplicationController
       per_page: collection.limit_value
     }
   end
+
+  def build_meta_users(collection)
+    {
+      count: collection.count
+    }
+  end
 end
