@@ -21,6 +21,5 @@ export function fetch(method, url, body) {
     data: body,
     url
   };
-  console.log(options);
   return axios(options);
 }
