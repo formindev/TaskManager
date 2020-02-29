@@ -80,7 +80,7 @@ export default class EditPopup extends React.Component {
   render () {
     if (this.state.isLoading) {
       return (
-        <Modal show={this.props.show} onHide={this.props.onClose}>
+        <Modal animation={false} show={this.props.show} onHide={this.props.onClose}>
           <Modal.Header closeButton>
             <Modal.Title>
               Info
