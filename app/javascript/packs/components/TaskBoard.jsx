@@ -72,17 +72,15 @@ export default class TasksBoard extends React.Component {
   }
 
   loadLine(state, page = 1) {
-    this.fetchLine(state, page).then(( data ) => {
+    this.fetchLine(state, page).then(( response ) => {
       this.setState({
-        [state]: data
+        [state]: response.data
       });
     });
   }
 
   fetchLine(state, page = 1) {
-    return fetch('GET', window.Routes.api_v1_tasks_path({ q: { state_eq: state }, page: page, per_page: 10, format: 'json' })).then(({data}) => {
-      return data;
-    })
+    return fetch('GET', window.Routes.api_v1_tasks_path({ q: { state_eq: state }, page: page, per_page: 10, format: 'json' }))
   }
 
   onLaneScroll = (requestedPage, state) => {

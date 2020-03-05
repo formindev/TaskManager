@@ -36,7 +36,7 @@ export default class AddPopup extends React.Component {
         assignee_id: this.state.assignee.id
       }
     }).then(response => {
-      if (response.statusText == "Created") {
+      if (response.status == 201) {
         this.props.onClose(true);
       } else {
         alert(`${response.status} - ${response.statusText}`);

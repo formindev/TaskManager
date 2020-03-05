@@ -28,7 +28,6 @@ export default class EditPopup extends React.Component {
   loadCard = (cardId) => {
     this.setState({ isLoading: true });
     fetch('GET', window.Routes.api_v1_task_path(cardId, {format: 'json'})).then(({data}) => {
-      console.log(data);;
       this.setState({ task: data});
       this.setState({ isLoading: false });
     });
@@ -53,14 +52,13 @@ export default class EditPopup extends React.Component {
       name: this.state.task.name,
       description: this.state.task.description,
       author_id: this.state.task.author.id,
-      //assignee_id: this.state.task.assignee.id,
       state: this.state.task.state
     }).then( response => {
-      if (response.statusText == 'OK') {
+      if (response.status == 200) {
         this.props.onClose(this.state.task.state);
       }
       else {
-        alert('Update failed! ' + response.status + ' - ' + response.statusText);
+        alert(`Update failed! ${response.status} - ${response.statusText}`);
       }
     });
   }
@@ -68,11 +66,11 @@ export default class EditPopup extends React.Component {
   handleCardDelete = () => {
     fetch('DELETE', window.Routes.api_v1_task_path(this.props.cardId, { format: 'json' }))
       .then( response => {
-        if (response.statusText == 'OK') {
+        if (response.status == 200) {
           this.props.onClose(this.state.task.state);
         }
         else {
-          alert('DELETE failed! ' + response.status + ' - ' + response.statusText);
+          alert(`DELETE failed! ${response.status} - ${response.statusText}`);
         }
       });
   }
