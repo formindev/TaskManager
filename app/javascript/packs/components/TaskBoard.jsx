@@ -80,7 +80,7 @@ export default class TasksBoard extends React.Component {
   }
 
   fetchLine(state, page = 1) {
-    return fetch('GET', window.Routes.api_v1_tasks_path({ q: { state_eq: state }, page: page, per_page: 10, format: 'json' }))
+    return fetch('GET', window.Routes.api_v1_tasks_path({ q: { state_eq: state }, page: page, per_page: 10 }))
   }
 
   onLaneScroll = (requestedPage, state) => {
@@ -96,7 +96,7 @@ export default class TasksBoard extends React.Component {
   }
 
   handleDragEnd = (cardId, sourceLaneId, targetLaneId) => {
-   fetch('PUT', window.Routes.api_v1_task_path(cardId, { format: 'json' }), { task: { state_event: targetLaneId } })
+   fetch('PUT', window.Routes.api_v1_task_path(cardId), { task: { state_event: targetLaneId } })
     .then(() => {
       this.loadLine(sourceLaneId);
       this.loadLine(targetLaneId);
