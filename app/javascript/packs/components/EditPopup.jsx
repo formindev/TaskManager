@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Button, FormGroup, FormLabel, FormControl } from 'react-bootstrap';
 import { fetch } from './Fetch';
+import ModalWindow from "./ModalWindow"
 
 export default class EditPopup extends React.Component {
   state = {
@@ -78,30 +79,19 @@ export default class EditPopup extends React.Component {
   render () {
     if (this.state.isLoading) {
       return (
-        <Modal animation={false} show={this.props.show} onHide={this.props.onClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              Info
-            </Modal.Title>
-          </Modal.Header>
+        <ModalWindow show={this.props.show} onHide={this.props.onClose} title="Info">
            <Modal.Body>
             Your task is loading. Please be patient.
           </Modal.Body>
            <Modal.Footer>
             <Button onClick={this.props.onClose}>Close</Button>
           </Modal.Footer>
-        </Modal>
+        </ModalWindow>
       )
     }
     return (
       <div>
-        <Modal animation={false} show={this.props.show} onHide={this.props.onClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              Task # {this.state.task.id} [{this.state.task.state}]
-            </Modal.Title>
-          </Modal.Header>
-
+        <ModalWindow show={this.props.show} onHide={this.props.onClose} title={`Task # ${this.state.task.id} [${this.state.task.state}]`}>
           <Modal.Body>
             <form>
               <FormGroup controlId="formTaskName">
@@ -131,7 +121,7 @@ export default class EditPopup extends React.Component {
             <Button onClick={this.props.onClose}>Close</Button>
             <Button bsstyle="primary" onClick={this.handleCardEdit}>Save changes</Button>
           </Modal.Footer>
-        </Modal>
+        </ModalWindow>
       </div>
     );
   }

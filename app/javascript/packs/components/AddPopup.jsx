@@ -7,6 +7,7 @@ import {
   FormControl
 } from "react-bootstrap";
 import { fetch } from "./Fetch";
+import ModalWindow from "./ModalWindow"
 
 export default class AddPopup extends React.Component {
   state = {
@@ -47,11 +48,7 @@ export default class AddPopup extends React.Component {
   render() {
     return (
       <div>
-        <Modal animation={false} show={this.props.show} onHide={this.props.onClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>New task</Modal.Title>
-          </Modal.Header>
-
+        <ModalWindow show={this.props.show} onHide={this.props.onClose} title="New task">
           <Modal.Body>
             <form>
               <FormGroup controlId="formTaskName">
@@ -81,7 +78,7 @@ export default class AddPopup extends React.Component {
               Save changes
             </Button>
           </Modal.Footer>
-        </Modal>
+        </ModalWindow>
       </div>
     );
   }
