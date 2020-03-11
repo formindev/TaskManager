@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  Modal,
-  Button,
-  FormGroup,
-  FormLabel,
-  FormControl
-} from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { fetch } from "./Fetch";
+import FormIput from "./FormInput";
 import ModalWindow from "./ModalWindow"
 
 export default class AddPopup extends React.Component {
@@ -51,24 +46,23 @@ export default class AddPopup extends React.Component {
         <ModalWindow show={this.props.show} onHide={this.props.onClose} title="New task">
           <Modal.Body>
             <form>
-              <FormGroup controlId="formTaskName">
-                <FormLabel>Task name:</FormLabel>
-                <FormControl
-                  type="text"
-                  value={this.state.name}
-                  placeholder="Set the name for the task"
-                  onChange={this.handleNameChange}
-                />
-              </FormGroup>
-              <FormGroup controlId="formDescriptionName">
-                <FormLabel>Task description:</FormLabel>
-                <FormControl
-                  componentclass="textarea"
-                  value={this.state.description}
-                  placeholder="Set the description for the task"
-                  onChange={this.handleDecriptionChange}
-                />
-              </FormGroup>
+              <FormIput
+                controlName="formTaskName"
+                type="text"
+                title="Task name:"
+                value={this.state.name}
+                placeholder="Set the name for the task"
+                onChange={this.handleNameChange}
+              />
+
+              <FormIput
+                controlName="formDescripptionName"
+                type="textarea"
+                title="Task description:"
+                value={this.state.description}
+                placeholder="Set the description for the task"
+                onChange={this.handleDecriptionChange}
+              />
             </form>
           </Modal.Body>
 

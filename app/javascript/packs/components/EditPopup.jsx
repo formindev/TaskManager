@@ -1,6 +1,7 @@
 import React from 'react';
-import { Modal, Button, FormGroup, FormLabel, FormControl } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import { fetch } from './Fetch';
+import FormInput from './FormInput';
 import ModalWindow from "./ModalWindow"
 
 export default class EditPopup extends React.Component {
@@ -94,24 +95,23 @@ export default class EditPopup extends React.Component {
         <ModalWindow show={this.props.show} onHide={this.props.onClose} title={`Task # ${this.state.task.id} [${this.state.task.state}]`}>
           <Modal.Body>
             <form>
-              <FormGroup controlId="formTaskName">
-                <FormLabel>Task name:</FormLabel>
-                <FormControl
-                  type="text"
-                  value={this.state.task.name}
-                  placeholder='Set the name for the task'
-                  onChange={this.handleNameChange}
-                />
-              </FormGroup>
-              <FormGroup controlId="formDescriptionName">
-                <FormLabel>Task description:</FormLabel>
-                <FormControl
-                  componentclass="textarea"
-                  value={this.state.task.description}
-                  placeholder='Set the description for the task'
-                  onChange={this.handleDecriptionChange}
-                />
-              </FormGroup>
+              <FormInput 
+                controlName="formTaskName"
+                type="text"
+                title="Task name:"
+                value={this.state.task.name}
+                placeholder='Set the name for the task'
+                onChange={this.handleNameChange}
+              />
+
+              <FormInput
+                controlName="formDescriptionName"
+                type="textarea"
+                title="Task description:"
+                value={this.state.task.description}
+                placeholder='Set the description for the task'
+                onChange={this.handleDecriptionChange}
+              />
             </form>
             Author: {this.state.task.author.first_name} {this.state.task.author.last_name}
           </Modal.Body>
