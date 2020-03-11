@@ -8,6 +8,7 @@ export default class AddPopup extends React.Component {
   state = {
     name: "",
     description: "",
+    state: "new_task",
     assignee: {
       id: null,
       first_name: null,
@@ -33,7 +34,7 @@ export default class AddPopup extends React.Component {
       }
     }).then(response => {
       if (response.status == 201) {
-        this.props.onClose(true);
+        this.props.onChange(this.state.state);
       } else {
         alert(`${response.status} - ${response.statusText}`);
       }

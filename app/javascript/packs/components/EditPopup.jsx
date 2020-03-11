@@ -35,10 +35,8 @@ export default class EditPopup extends React.Component {
     });
   }
 
-  componentDidUpdate (prevProps) {
-    if (this.props.cardId != null && this.props.cardId !== prevProps.cardId) {
-      this.loadCard(this.props.cardId);
-    };
+  componentDidMount () {
+    this.loadCard(this.props.cardId);
   }
 
   handleNameChange = (e) => {
@@ -57,7 +55,7 @@ export default class EditPopup extends React.Component {
       state: this.state.task.state
     }).then( response => {
       if (response.status == 200) {
-        this.props.onClose(this.state.task.state);
+        this.props.onChange(this.state.task.state);
       }
       else {
         alert(`Update failed! ${response.status} - ${response.statusText}`);
@@ -69,7 +67,7 @@ export default class EditPopup extends React.Component {
     fetch('DELETE', window.Routes.api_v1_task_path(this.props.cardId, { format: 'json' }))
       .then( response => {
         if (response.status == 200) {
-          this.props.onClose(this.state.task.state);
+          this.props.onChange(this.state.task.state);
         }
         else {
           alert(`DELETE failed! ${response.status} - ${response.statusText}`);
@@ -95,7 +93,7 @@ export default class EditPopup extends React.Component {
         <ModalWindow show={this.props.show} onHide={this.props.onClose} title={`Task # ${this.state.task.id} [${this.state.task.state}]`}>
           <Modal.Body>
             <form>
-              <FormInput 
+              <FormInput
                 controlName="formTaskName"
                 type="text"
                 title="Task name:"

@@ -107,11 +107,13 @@ export default class TasksBoard extends React.Component {
     this.setState({ addPopupShow: true });
   }
 
-  handleAddClose = ( added = false ) => {
-    this.setState({ addPopupShow: false });
-    if (added == true) {
-      this.loadLine('new_task');
-    };
+  handleChangeClose = (edited) => {
+    this.handleClose();
+    this.loadLine(edited);
+  }
+
+  handleClose = () => {
+    this.setState({ editPopupShow: false, editCardId: null, addPopupShow: false });
   }
 
   onCardClick = (cardId) => {
@@ -119,25 +121,38 @@ export default class TasksBoard extends React.Component {
     this.handleEditShow();
   }
 
-  handleEditClose = ( edited = '' ) => {
-    this.setState({ editPopupShow: false, editCardId: null});
-    switch (edited) {
-      case 'new_task':
-      case 'in_development':
-      case 'in_qa':
-      case 'in_code_review':
-      case 'ready_for_release':
-      case 'released':
-      case 'archived':
-      this.loadLine(edited);
-      break;
-      default:
-        break;
-    }
-  }
-
   handleEditShow = () => {
     this.setState({ editPopupShow: true });
+  }
+
+  renderEditPopup() {
+    if (!this.state.editPopupShow) {
+      return null;
+    }
+
+    return (
+      <EditPopup
+        show = {this.state.editPopupShow}
+        onClose={this.handleClose}
+        onChange={this.handleChangeClose}
+        cardId ={this.state.editCardId}
+        key = {this.state.editCardId}
+      />
+    )
+  }
+
+  renderAddPopup() {
+    if (!this.state.addPopupShow) {
+      return null;
+    }
+
+    return (
+      <AddPopup
+        show = {this.state.addPopupShow}
+        onClose={this.handleClose}
+        onChange={this.handleChangeClose}
+      />
+    )
   }
 
   render() {
@@ -145,15 +160,8 @@ export default class TasksBoard extends React.Component {
       <div>
         <h1>Your tasks</h1>
         <Button bsstyle="primary" onClick={this.handleAddShow}>Create new task</Button>
-        <AddPopup
-          show = {this.state.addPopupShow}
-          onClose={this.handleAddClose}
-        />
-        <EditPopup
-          show = {this.state.editPopupShow}
-          onClose={this.handleEditClose}
-          cardId ={this.state.editCardId}
-        />
+        {this.renderEditPopup()}
+        {this.renderAddPopup()}
         <Board
           components={components}
           onLaneScroll={this.onLaneScroll}
