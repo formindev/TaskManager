@@ -168,7 +168,7 @@ export class TasksBoard extends React.Component {
   render() {
     return (
       <div>
-        <h1>Your tasks</h1>
+        <h1>Your tasks:</h1>
         <Button bsstyle="primary" onClick={this.handleAddShow}>Create new task</Button>
         {this.renderEditPopup()}
         {this.renderAddPopup()}

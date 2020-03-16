@@ -52,6 +52,7 @@ export default class EditPopup extends React.Component {
       name: this.state.task.name,
       description: this.state.task.description,
       author_id: this.state.task.author.id,
+      assignee_id: this.state.task.assignee.id,
       state: this.state.task.state
     }).then( response => {
       if (response.status == 200) {
@@ -75,11 +76,19 @@ export default class EditPopup extends React.Component {
       });
   }
 
+  handleAuthorChange = (value) => {
+    this.setState({ task: { ...this.state.task, author: value }});
+  }
+
+  handleAssigneeChange = (value) => {
+    this.setState({ task: { ...this.state.task, assignee: value }});
+  }
+
   render () {
     if (this.state.isLoading) {
       return (
         <ModalWindow show={this.props.show} onHide={this.props.onClose} title="Info">
-           <Modal.Body>
+          <Modal.Body>
             Your task is loading. Please be patient.
           </Modal.Body>
            <Modal.Footer>
@@ -110,8 +119,26 @@ export default class EditPopup extends React.Component {
                 placeholder='Set the description for the task'
                 onChange={this.handleDecriptionChange}
               />
+
+              <FormInput
+                controlName="formAssigneeSelect"
+                title="Assignee:"
+                isSelect={true}
+                selectId="Assignee"
+                value={this.state.task.assignee}
+                onChange={this.handleAssigneeChange}
+              />
+
+              <FormInput
+                controlName="formAuthorSelect"
+                title="Author:"
+                isSelect={true}
+                selectId="Author"
+                isDisabled={true}
+                value={this.state.task.author}
+                onChange={this.handleAuthorChange}
+              />
             </form>
-            Author: {this.state.task.author.first_name} {this.state.task.author.last_name}
           </Modal.Body>
 
           <Modal.Footer>
@@ -121,6 +148,6 @@ export default class EditPopup extends React.Component {
           </Modal.Footer>
         </ModalWindow>
       </div>
-    );
+    )
   }
 }

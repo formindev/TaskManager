@@ -1,8 +1,8 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
-import { fetch } from "components/Fetch";
-import FormIput from "components/FormInput";
-import ModalWindow from "components/ModalWindow"
+import { fetch } from './Fetch';
+import FormIput from "./FormInput";
+import ModalWindow from "./ModalWindow"
 
 export default class AddPopup extends React.Component {
   state = {
@@ -41,6 +41,10 @@ export default class AddPopup extends React.Component {
     });
   };
 
+  handleAssigneeChange = (value) => {
+    this.setState({ assignee: value });
+  }
+
   render() {
     return (
       <div>
@@ -64,9 +68,17 @@ export default class AddPopup extends React.Component {
                 placeholder="Set the description for the task"
                 onChange={this.handleDecriptionChange}
               />
+
+              <FormIput
+                controlName="formAssigneeSelect"
+                title="Assignee:"
+                isSelect={true}
+                selectId="Assignee"
+                value={this.state.assignee}
+                onChange={this.handleAssigneeChange}
+              />
             </form>
           </Modal.Body>
-
           <Modal.Footer>
             <Button onClick={this.props.onClose}>Close</Button>
             <Button bsstyle="primary" onClick={this.handleCardAdd}>
