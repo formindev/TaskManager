@@ -11,6 +11,15 @@ const components = {
   LaneHeader: LaneHeader
 };
 
+const eventMap = {
+  'in_development': 'develop',
+  'in_qa': 'check',
+  'in_code_review': 'review',
+  'ready_for_release': 'prepare',
+  'released': 'release',
+  'archived': 'archive'
+};
+
 export class TasksBoard extends React.Component {
   state = {
     board: {
@@ -97,7 +106,7 @@ export class TasksBoard extends React.Component {
   }
 
   handleDragEnd = (cardId, sourceLaneId, targetLaneId) => {
-   fetch('PUT', window.Routes.api_v1_task_path(cardId), { task: { state_event: targetLaneId } })
+   fetch('PUT', window.Routes.api_v1_task_path(cardId), { task: { state_event: eventMap[targetLaneId] } })
     .then(() => {
       this.loadLine(sourceLaneId);
       this.loadLine(targetLaneId);
