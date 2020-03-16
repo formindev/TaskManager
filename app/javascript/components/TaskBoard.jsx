@@ -1,3 +1,4 @@
+import { hot } from 'react-hot-loader/root';
 import React from 'react'
 import Board from 'react-trello'
 import { fetch } from "components/Fetch";
@@ -10,7 +11,7 @@ const components = {
   LaneHeader: LaneHeader
 };
 
-export default class TasksBoard extends React.Component {
+export class TasksBoard extends React.Component {
   state = {
     board: {
       new_task: null,
@@ -176,3 +177,5 @@ export default class TasksBoard extends React.Component {
     );
   }
 }
+
+export default hot(TasksBoard);
