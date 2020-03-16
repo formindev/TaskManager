@@ -1,10 +1,10 @@
 import React from 'react'
 import Board from 'react-trello'
-import { fetch } from "./Fetch";
-import LaneHeader from './LaneHeader';
+import { fetch } from "components/Fetch";
+import LaneHeader from 'components/LaneHeader';
 import { Button } from 'react-bootstrap';
-import AddPopup from './AddPopup';
-import EditPopup from './EditPopup';
+import AddPopup from 'components/AddPopup';
+import EditPopup from 'components/EditPopup';
 
 const components = {
   LaneHeader: LaneHeader

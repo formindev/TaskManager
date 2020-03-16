@@ -1,8 +1,8 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { fetch } from './Fetch';
-import FormInput from './FormInput';
-import ModalWindow from "./ModalWindow"
+import { fetch } from 'components/Fetch';
+import FormInput from 'components/FormInput';
+import ModalWindow from "components/ModalWindow"
 
 export default class EditPopup extends React.Component {
   state = {
