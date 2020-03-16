@@ -4,6 +4,7 @@ import {
   FormLabel,
   FormControl
 } from "react-bootstrap";
+import UserSelect from "./UserSelect";
 
 export default class FormInput extends React.Component {
   renderInputControl() {
@@ -16,12 +17,39 @@ export default class FormInput extends React.Component {
       />
     )
   }
+  
+  renderSelectControl() {
+    return(
+      <UserSelect
+        id={this.props.selectId}
+        isDisabled={this.props.isDisabled}
+        value={this.props.value}
+        onChange={this.props.onChange}
+      />
+    )
+  }
+
+  renderSelectControl() {
+    return(
+      <UserSelect
+        id={this.props.selectId}
+        isDisabled={this.props.isDisabled}
+        value={this.props.value}
+        onChange={this.props.onChange}
+      />
+    )
+  }
 
   render() {
+    const isSelect = this.props.isSelect ? this.props.isSelect : false;
     return(
       <FormGroup controlId={this.props.controlName}>
         <FormLabel>{this.props.title}</FormLabel>
-        {this.renderInputControl()}
+          {isSelect ? (
+            this.renderSelectControl()
+          ) : (
+            this.renderInputControl()
+          )}
       </FormGroup>
     )
   }
