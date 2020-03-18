@@ -1,0 +1,16 @@
+{
+  "application.js": "/packs-test/application-b8729542bebbe5b4b8cc.js",
+  "application.js.map": "/packs-test/application-b8729542bebbe5b4b8cc.js.map",
+  "components/AddPopup.js": "/packs-test/components/AddPopup-5075738c6998e6ea1162.js",
+  "components/AddPopup.js.map": "/packs-test/components/AddPopup-5075738c6998e6ea1162.js.map",
+  "components/EditPopup.js": "/packs-test/components/EditPopup-5fed99b398f9b34eafaa.js",
+  "components/EditPopup.js.map": "/packs-test/components/EditPopup-5fed99b398f9b34eafaa.js.map",
+  "components/Fetch.js": "/packs-test/components/Fetch-81841feede8e80701980.js",
+  "components/Fetch.js.map": "/packs-test/components/Fetch-81841feede8e80701980.js.map",
+  "components/LaneHeader.js": "/packs-test/components/LaneHeader-e2b9c1050ceb02d9f8d2.js",
+  "components/LaneHeader.js.map": "/packs-test/components/LaneHeader-e2b9c1050ceb02d9f8d2.js.map",
+  "components/TaskBoard.js": "/packs-test/components/TaskBoard-caa4e02518682db35be1.js",
+  "components/TaskBoard.js.map": "/packs-test/components/TaskBoard-caa4e02518682db35be1.js.map",
+  "hello_react.js": "/packs-test/hello_react-34d25289633d1d0a9d6a.js",
+  "hello_react.js.map": "/packs-test/hello_react-34d25289633d1d0a9d6a.js.map"
+}
