@@ -110,6 +110,10 @@ export class TasksBoard extends React.Component {
     .then(() => {
       this.loadLine(sourceLaneId);
       this.loadLine(targetLaneId);
+    })
+    .catch((e) => {
+      this.loadLine(sourceLaneId);
+      this.loadLine(targetLaneId);
     });
   }
 
